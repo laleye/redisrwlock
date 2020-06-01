@@ -169,9 +169,9 @@ class Rwlock:
 
 class RwlockClient:
 
-    def __init__(self, redis=None, node=None, pid=None):
+     def __init__(self, redis=None, node=None, pid=None, host="localhost", port="6379"):
         if redis is None:
-            redis = StrictRedis()
+            redis = StrictRedis(host=host, port=port)
         if node is None:
             node = socket.gethostname()
         if pid is None:
